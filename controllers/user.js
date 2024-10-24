@@ -223,7 +223,7 @@ export const listUsers = async (req, res) => {
 };
 
 // Método para actualizar los datos del usuario
-// Método para actualizar los datos del usuario
+
 export const updateUser = async (req, res) => {
   try {
     
@@ -359,11 +359,8 @@ export const avatar = async (req, res) => {
       });
     }
 
-    // Devolver la URL de la imagemn desde cloudinary
-    return res.status(200).send({
-      status: "success",
-      imageUrl: user.image // URL de Cloudinary
-    });
+    // Redirigir a la URL de la imagen en Cloudinary
+    return res.redirect(user.image);
 
   } catch (error) {
   console.log("Error al mostrar el archivo del avatar", error);
